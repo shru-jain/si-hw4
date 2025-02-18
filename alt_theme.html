@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"title": {"anchor": "start", "fontSize": 18, "font": "Inconsolata", "subtitleFontSize": 16, "subtitleFont": "Inconsolata", "offset": 20}, "axisX": {"domain": true, "titleFont": "Inconsolata", "titleFontSize": 11, "labelFont": "Inconsolata", "labelFontSize": 9, "domainColor": "#000000", "domainWidth": 1, "tickSize": 5, "labelAngle": 0, "grid": false}, "axisY": {"domain": false, "titleFont": "Inconsolata", "titleFontSize": 11, "labelAngle": 0, "titleAngle": 0, "titleY": -20, "titleBaseline": "bottom", "titleAnchor": "start", "grid": false, "labelFont": "Inconsolata", "labelFontSize": 9, "tickSize": 0, "titlePadding": 30}, "background": "#ffffff", "view": {"stroke": "transparent"}, "range": {"category": ["#004643", "#acd1c6", "#041c1c", "#f9bc60", "#e06162", "#e8e4e6"], "ordinal": ["#fff4de", "#fcafcb", "#ed67b4", "#a12a8b", "#701c7a", "#001066"], "diverging": ["#00d9ff", "#9eeaff", "#d3f4ff", "#FFFFFF", "#ffe8fb", "#fdd1f7", "#faadf0"]}, "mark": {"color": "#a12a8b"}, "area": {}, "line": {}, "point": {}, "text": {"font": "Inconsolata", "fontColor": "#000000", "fontSize": 14}}, "data": {"name": "data-9caf41610d138539d8867acfefcb00cc"}, "mark": {"type": "circle"}, "encoding": {"color": {"field": "percentage", "scale": {"range": "ordinal"}, "title": "Percent", "type": "quantitative"}, "tooltip": [{"field": "character", "type": "nominal"}, {"field": "total_ratings", "type": "quantitative"}, {"field": "percentage", "type": "quantitative"}], "x": {"field": "total_ratings", "scale": {"domain": [800, 850]}, "title": "Number of Ratings", "type": "quantitative"}, "y": {"field": "percentage", "title": "Percent of Favorable Ratings", "type": "quantitative"}}, "title": "Favorable Ratings by Number of Ratings", "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-9caf41610d138539d8867acfefcb00cc": [{"character": "Luke Skywalker", "rating-cleaned": "Favorable", "percentage": 0.93, "total_ratings": 831}, {"character": "Han Solo", "rating-cleaned": "Favorable", "percentage": 0.92, "total_ratings": 829}, {"character": "Obi Wan Kenobi", "rating-cleaned": "Favorable", "percentage": 0.91, "total_ratings": 825}, {"character": "Princess Leia Organa", "rating-cleaned": "Favorable", "percentage": 0.91, "total_ratings": 831}, {"character": "Yoda", "rating-cleaned": "Favorable", "percentage": 0.91, "total_ratings": 826}, {"character": "R2 D2", "rating-cleaned": "Favorable", "percentage": 0.9, "total_ratings": 830}, {"character": "C-3P0", "rating-cleaned": "Favorable", "percentage": 0.85, "total_ratings": 827}, {"character": "Anakin Skywalker", "rating-cleaned": "Favorable", "percentage": 0.62, "total_ratings": 823}, {"character": "Darth Vader", "rating-cleaned": "Favorable", "percentage": 0.58, "total_ratings": 826}, {"character": "Lando Calrissian", "rating-cleaned": "Favorable", "percentage": 0.45, "total_ratings": 820}, {"character": "Padme Amidala", "rating-cleaned": "Favorable", "percentage": 0.43, "total_ratings": 814}, {"character": "Boba Fett", "rating-cleaned": "Favorable", "percentage": 0.36, "total_ratings": 812}, {"character": "Emperor Palpatine", "rating-cleaned": "Favorable", "percentage": 0.31, "total_ratings": 814}, {"character": "Jar Jar Binks", "rating-cleaned": "Favorable", "percentage": 0.29, "total_ratings": 821}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
